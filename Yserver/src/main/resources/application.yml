@@ -1,0 +1,12 @@
+server:
+  port: 7969
+spring:
+  application:
+    name: compute-service-y
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7967/eureka/
+
+swagger:
+  enable: true

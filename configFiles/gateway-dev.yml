@@ -1,0 +1,24 @@
+server:
+  port: 7970
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7967/eureka/
+
+zuul:
+  routes:
+    config-server:
+      path: /hbService/**
+      serviceId: hb-appservice
+    user-service:
+      path: /yservice/**
+      serviceId: compute-service-y
+    attendance-service:
+      path: /attendance/**
+      serviceId: attendanceService

@@ -1,0 +1,34 @@
+server:
+  port: 7977
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7967/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  application:
+   name: configServer
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://10.10.2.143/Android-Group/Micro-App.git
+          searchPaths: springCloud/configFiles
+          username: pangkang@boco.com.cn
+          password: weiming123-=
+    bus:
+      refresh:
+        enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test
